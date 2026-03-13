@@ -1,10 +1,14 @@
-﻿namespace UniversityAcademicManagementSystem.Repositories
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace UniversityAcademicManagementSystem.Repositories
 {
 	public interface IGenericRepository<T> where T : class
 	{
-		bool Add(T entity);
-		bool Update(T entity);
-		bool Delete(int id);
+		void Add(T entity);
+		void Update(T entity);
+		void Delete(int id);
 		T GetById(int id);
 		IEnumerable<T> GetAll();
 	}
