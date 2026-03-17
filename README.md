@@ -40,7 +40,7 @@ flowchart TD
 
 ## DataBase Tables and their Relationships 
 
-```
+```mermaid
 erDiagram
     %% Relationships
     Student ||--o{ Enrollment : "has"
