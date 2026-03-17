@@ -38,6 +38,63 @@ flowchart TD
 
 ---
 
+## DataBase Tables and their Relationships 
+
+```
+erDiagram
+    %% Relationships
+    Student ||--o{ Enrollment : "has"
+    Student ||--o{ Grade : "receives"
+    Student ||--o{ AcademicRecord : "maintains"
+    
+    Course ||--o{ Enrollment : "includes"
+    Course ||--o{ Grade : "awards"
+    Course ||--o{ AcademicRecord : "is recorded in"
+
+    %% Tables and Columns
+    Student {
+        INT studentId PK
+        VARCHAR(100) name
+        VARCHAR(100) email
+        VARCHAR(100) department
+        VARCHAR(20) contactNumber
+        INT enrollmentYear
+    }
+    
+    Course {
+        INT courseId PK
+        VARCHAR(100) courseName
+        INT credits
+        VARCHAR(100) department
+        VARCHAR(20) semesterOffered
+    }
+    
+    Enrollment {
+        INT enrollmentId PK
+        INT studentId FK
+        INT courseId FK
+        ENUM enrollmentStatus
+    }
+    
+    Grade {
+        INT gradeId PK
+        INT studentId FK
+        INT courseId FK
+        VARCHAR(5) grade
+        VARCHAR(255) remarks
+    }
+    
+    AcademicRecord {
+        INT recordId PK
+        INT studentId FK
+        INT courseId FK
+        VARCHAR(5) grade
+        VARCHAR(20) semester
+    }
+````
+
+---
+
 ## 🛠 Tech Stack
 
 * **Language:** C#
